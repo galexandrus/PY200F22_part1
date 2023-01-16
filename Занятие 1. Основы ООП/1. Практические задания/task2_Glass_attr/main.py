@@ -18,14 +18,21 @@ class Glass:
 
 if __name__ == "__main__":
     glass1 = Glass(200, 100)  # экземпляр класса
-    print(glass1.capacity_volume, glass1.occupied_volume)
+    # print(glass1.capacity_volume, glass1.occupied_volume)
+    print(glass1.__dict__)
 
-    glass2 = ...  # TODO инициализировать ещё один стакан
-    print(...)  # TODO распечатать атрибуты экземпляра glass2
+    glass2 = Glass(500, 140)  # инициализировать ещё один стакан
+    print(glass2.__dict__)  # распечатать атрибуты экземпляра glass2
 
     print("Доливаем воды в первый стакан...")
-    #  TODO доливаем воды в первый стакан
-    print(glass1.capacity_volume, glass1.occupied_volume)
-    print(glass2.capacity_volume, glass2.occupied_volume)
+    #  доливаем воды в первый стакан
+    glass1.occupied_volume += 50
+    # print(glass1.capacity_volume, glass1.occupied_volume)
+    print(glass1.__dict__)
+    # print(glass2.capacity_volume, glass2.occupied_volume)
+    print(glass2.__dict__)
 
-    #  TODO сравнить id объектов
+    #  сравнить id объектов
+    print(id(glass1))
+    print(id(glass2))
+    print(glass1 is glass2)
