@@ -7,10 +7,11 @@ class Glass:
         self.occupied_volume = occupied_volume  # объем жидкости в стакане
 
     def __repr__(self) -> str:
-        return f"Glass({self.capacity_volume}, {self.occupied_volume})"
+        return f"{self.__class__.__name__}({self.capacity_volume}, {self.occupied_volume})"
 
     def __str__(self) -> str:
-        ...  # TODO метод должен возвращать строку, которая содержит человеко-читаемую информацию
+        # метод должен возвращать строку, которая содержит человеко-читаемую информацию
+        return "Стакан объёмом 200. Объём жидкости = 100"
 
 
 if __name__ == "__main__":
@@ -18,3 +19,5 @@ if __name__ == "__main__":
 
     print(glass)  # Стакан объёмом 200. Объём жидкости = 100
     print([Glass(i, i) for i in range(50, 251, 50)])  # [Glass(50, 50), Glass(100, 100), Glass(150, 150), Glass(200, 200), Glass(250, 250)]
+    for i in range(50, 251, 50):
+        print(Glass(i, i))
