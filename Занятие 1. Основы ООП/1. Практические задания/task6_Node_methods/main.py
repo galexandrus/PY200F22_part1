@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     # с помощью метода распечатать значение первого узла
     print(first_node.get_value())
-    print(first_node.get_next())
+    # print(first_node.get_next())
     # с помощью метода распечатать следующий узел второго узла
-    print(second_node.get_value())
+    # print(second_node.get_value())
     print(second_node.get_next())
