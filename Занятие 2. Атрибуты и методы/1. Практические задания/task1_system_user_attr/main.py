@@ -1,5 +1,6 @@
 class Glass:
     def __init__(self, capacity_volume: int, occupied_volume: int):
+
         """
         Just a glass of water
 
@@ -11,6 +12,7 @@ class Glass:
         self.capacity_volume = capacity_volume
         self.occupied_volume = occupied_volume
         # print(".__dict__ from init:", self.__dict__)
+ master
 
 
 if __name__ == "__main__":
