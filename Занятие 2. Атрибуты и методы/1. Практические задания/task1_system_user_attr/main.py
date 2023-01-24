@@ -12,7 +12,6 @@ class Glass:
         self.capacity_volume = capacity_volume
         self.occupied_volume = occupied_volume
         # print(".__dict__ from init:", self.__dict__)
- master
 
 
 if __name__ == "__main__":
