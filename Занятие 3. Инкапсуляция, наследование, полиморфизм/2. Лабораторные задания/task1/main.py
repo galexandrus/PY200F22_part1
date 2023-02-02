@@ -19,19 +19,9 @@ class Book:
     def name(self) -> str:
         return self.__name
 
-    @name.setter
-    def name(self, new_name: str) -> None:
-        self.check_name(new_name)
-        self.__name = new_name
-
     @property
     def author(self) -> str:
         return self.__author
-
-    @author.setter
-    def author(self, new_author: str) -> None:
-        self.check_author(new_author)
-        self.__author = new_author
 
     @staticmethod
     def check_name(name: str) -> None:
@@ -47,21 +37,6 @@ class Book:
         if author == "":
             raise ValueError("имя автора не может быть пустой строкой")
 
-    @staticmethod
-    def check_pages(value: int) -> None:
-        if not isinstance(value, int):
-            raise TypeError("количество страниц должно быть целым числом")
-        elif value <= 0:
-            raise ValueError("количество страниц не может быть отрицательным")
-
-
-    @staticmethod
-    def check_duration(value: Union[int, float]) -> None:
-        if not (isinstance(value, int) or isinstance(value, float)):
-            raise TypeError("длительность должна быть типа float или int")
-        elif value <= 0:
-            raise ValueError("длительность не может быть отрицательной")
-
 
 class PaperBook(Book):
     def __init__(self, name: str, author: str, pages: int):
@@ -71,6 +46,13 @@ class PaperBook(Book):
 
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.__name!r}, author={self.__author!r}, pages={self.pages!r})"
+
+    @staticmethod
+    def check_pages(value: int) -> None:
+        if not isinstance(value, int):
+            raise TypeError("количество страниц должно быть целым числом")
+        elif value <= 0:
+            raise ValueError("количество страниц не может быть отрицательным")
 
 
 class AudioBook(Book):
@@ -82,9 +64,22 @@ class AudioBook(Book):
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.__name!r}, author={self.__author!r}, duration={self.duration!r})"
 
+    @staticmethod
+    def check_duration(value: Union[int, float]) -> None:
+        if not (isinstance(value, int) or isinstance(value, float)):
+            raise TypeError("длительность должна быть типа float или int")
+        elif value <= 0:
+            raise ValueError("длительность не может быть отрицательной")
+
 
 if __name__ == '__main__':
     paper_book = PaperBook("Приключения мартышки", "Обезьянка Чичи", 234)
     audio_book = AudioBook("Как играть в боулинг", "Лебовски", 23.5)
     print(paper_book)
     print(audio_book)
+    print(paper_book.name)
+    print(paper_book.author)
+    print(paper_book.pages)
+    print(audio_book.name)
+    print(audio_book.author)
+    print(audio_book.duration)
